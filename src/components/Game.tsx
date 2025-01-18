@@ -1,6 +1,6 @@
 import React from "react";
 
-import Board from "./Board/Board/Board";
+import Board from "./MiniGame/Board/Board";
 
 const Game: React.FC = () => {
     return (
