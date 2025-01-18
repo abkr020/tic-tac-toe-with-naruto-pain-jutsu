@@ -49,6 +49,7 @@ const Board: React.FC = () => {
             debug("handleBlockClick", index);
             // const stateCopy = [...state];
             const stateCopy = Array.from(state);
+            
             state[index] = currentPlayer;
             stateCopy[index] = currentPlayer;
 

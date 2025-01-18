@@ -1,9 +1,18 @@
-.board.four-by-four {
-    display: grid;
-    /* grid-template-columns: repeat(4, 1fr); */
-    /* grid-gap: 5px; */
-    width: 400px;
-    height: 400px;
-    margin: auto;
-  }
-  
+.fourByFourBoard{
+  border: 2px solid greenyellow;
+  /* display: flex; */
+  margin: 20px;
+  border-radius: 20px;
+  padding: 20px;
+  justify-content: center;
+  /* align-items: center; */
+  width: 50%;
+  margin: 0 auto;
+}
+
+.fourByFourRow{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
