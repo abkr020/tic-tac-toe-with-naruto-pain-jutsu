@@ -1,0 +1,14 @@
+.block{
+    border: 2px dashed tomato;
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+
+    /* after display flex only the item goes ot center */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
