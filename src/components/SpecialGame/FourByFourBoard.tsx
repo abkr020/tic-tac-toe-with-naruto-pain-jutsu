@@ -8,18 +8,6 @@ const FourByFourBoard: React.FC = () => {
     const [state, setState] = useState(Array(16).fill(null));
     const [currentPlayer, setCurrentPlayer] = useState("x");
 
-    // const [currentPlayer, setCurrentPlayer] = useState("x");
-
-    // const handleBlockClick = (index: number) => {
-    //     if (state[index] === null) {
-    //         const stateCopy = Array.from(state);
-    //         stateCopy[index] = currentPlayer;
-    //         setState(stateCopy);
-    //         setCurrentPlayer(currentPlayer === "x" ? "o" : "x");
-    //     }
-    // };
-
-
     const checkWinnerFunction = () => {
         const winningLines = [
             [0, 1, 2, 3],
@@ -62,7 +50,7 @@ const FourByFourBoard: React.FC = () => {
             debug("stateCopy : copied array", stateCopy);
             setCurrentPlayer(currentPlayer === "x" ? "o" : "x");
 
-            const checkWinner = checkWinnerFunction();
+            checkWinnerFunction();
         }
     }
 
