@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import debugLib from 'debug';
 import Block from "../Block/Block";
 import "./Board.css";
 import { useGameContext } from "../../../context/GameContext"; // Adjust the path as necessary
-import FourByFourBoard from "../../SpecialGame/FourByFourBoard";
 
 const debug = debugLib("app:Board");
 // const debug = debugLib('app:navbar');
@@ -13,7 +12,7 @@ const Board: React.FC = () => {
     debug("Board component render function start");
     const [state, setState] = useState(Array(9).fill(null));
     const [currentPlayer, setCurrentPlayer] = useState("x");
-    const [isFourByFour, setIsFourByFour] = useState(false);
+
     const { gameState, setGameState } = useGameContext();
     // setGameState('ok');
     debug("gameState : after change ", gameState);
@@ -33,7 +32,6 @@ const Board: React.FC = () => {
                 const wantsFourByFour = window.confirm("Do you want to play a 4x4 game?");
                 if (wantsFourByFour) {
                     setGameState('ok');
-                    setIsFourByFour(true); // Switch to 4x4 board
                 } else {
                     // Reset the current 3x3 board
                     setState(Array(9).fill(null));
@@ -59,15 +57,10 @@ const Board: React.FC = () => {
             debug("state : original array", state);
             setCurrentPlayer(currentPlayer === "x" ? "o" : "x");
 
-            const checkWinner = checkWinnerFunction();
+            checkWinnerFunction();
         }
 
     }
-
-    // if (isFourByFour) {
-    //     debug("return FourByFourBoard component start");
-    //     return <FourByFourBoard />;
-    //   }
 
     debug("return Board component start");
     return (
