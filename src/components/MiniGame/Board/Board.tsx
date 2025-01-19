@@ -2,20 +2,16 @@ import React, { useState } from "react";
 import debugLib from 'debug';
 import Block from "../Block/Block";
 import "./Board.css";
-import { useGameContext } from "../../../context/GameContext"; // Adjust the path as necessary
 
 const debug = debugLib("app:Board");
-// const debug = debugLib('app:navbar');
 
 
 const Board: React.FC = () => {
     debug("Board component render function start");
     const [state, setState] = useState(Array(9).fill(null));
     const [currentPlayer, setCurrentPlayer] = useState("x");
+    const [winner, setWinner] = useState<string | null>(null);
 
-    const { gameState, setGameState } = useGameContext();
-    // setGameState('ok');
-    debug("gameState : after change ", gameState);
     const checkWinnerFunction = () => {
         debug("state : from the check winner funcition ", state);
 
@@ -27,15 +23,12 @@ const Board: React.FC = () => {
         for (let i = 0; i < winningConditions.length; i++) {
             const [a, b, c] = winningConditions[i];
             if (state[a] === state[b] && state[a] === state[c] && state[a] !== null) {
-                alert("Winner is : " + state[a] + " ");
+                // alert("Winner is : " + state[a] + " after closing it do not press the ~ key it wiil activate the jutsu of the pain i.e. gravitational pull");
+                setWinner(state[a]); // Set the winner to trigger the popup
 
-                const wantsFourByFour = window.confirm("Do you want to play a 4x4 game?");
-                if (wantsFourByFour) {
-                    setGameState('ok');
-                } else {
-                    // Reset the current 3x3 board
-                    setState(Array(9).fill(null));
-                }
+
+
+                setState(Array(9).fill(null));
                 return;
             }
 
@@ -45,9 +38,9 @@ const Board: React.FC = () => {
     const handleBlockClick = (index: number) => {
         if (state[index] === null) {
             debug("handleBlockClick", index);
-            // const stateCopy = [...state];
+            // const stateCopy = [...state]; // this also works
             const stateCopy = Array.from(state);
-            
+
             state[index] = currentPlayer;
             stateCopy[index] = currentPlayer;
 
@@ -62,9 +55,30 @@ const Board: React.FC = () => {
 
     }
 
+    const closeModal = () => {
+        setWinner(null); // Close the popup
+    };
     debug("return Board component start");
     return (
         <div className="board">
+            {winner && (
+                <div className="modal-overlay">
+                    <div className="modal">
+                        <p>
+                            <strong style={{ color: "green" }}>
+                                Winner is: {winner} !
+                            </strong>
+                            <br />
+                            <strong style={{ color: "red" }}>
+                                do not press the <strong>~</strong> key. It will activate the jutsu of Pain, i.e., gravitational pull !
+                            </strong>
+
+
+                        </p>
+                        <button onClick={closeModal}>Close</button>
+                    </div>
+                </div>
+            )}
             <div className="row">
                 <Block onClick={() => handleBlockClick(0)} value={state[0]} />
                 <Block onClick={() => handleBlockClick(1)} value={state[1]} />

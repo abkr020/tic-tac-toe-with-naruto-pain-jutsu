@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# tic-tac-toe-with-naruto-pain-jutsu
 
-Currently, two official plugins are available:
+# my idea is
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+my idea is to create a normal tic tac toe game and when the game ends i want to show a pop up whth a message **do not click the the tiddle key (~) it will activate the pain's jutsu i.e. gravitational pull** and if user clicks the the **~** button the 7 new blocks will comes out of the windown and get attached to the existion board of 3 X 3 making it 4 X 4. _and if user press the combine keys the **all mighty push** jutsu will activate removing these 7 blocks out of the window_
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+**shift + key below the escape key**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+i just want to create this user interface
+
+## the basic game is launched but the main idea is still in devlopment
+the animation is remaining <learning css to impliment this>
+
+## about
+
+normal tic tac toe game with 4 X 4 board
+
+
+
+# local setup
+
+clone the repositery
+
+```javascript
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```javascript
+npm run dev
 ```
+
+
