@@ -1,12 +1,12 @@
 .fourByFourBoard{
   border: 2px solid greenyellow;
   /* display: flex; */
-  margin: 20px;
+  /* margin: 20px; */
   border-radius: 20px;
   padding: 20px;
   justify-content: center;
   /* align-items: center; */
-  width: 50%;
+  width: 100hw;
   margin: 0 auto;
 }
 
