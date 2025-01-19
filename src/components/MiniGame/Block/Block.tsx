@@ -4,6 +4,7 @@ import "./Block.css";
 interface BlockProps {
     value?: string;
     onClick?: () => void;
+    key?: number;
 }
 const Block: React.FC<BlockProps> = (props) => {
     return (
